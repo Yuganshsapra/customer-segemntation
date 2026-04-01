@@ -1,118 +1,126 @@
-📊 Customer Segmentation Using SQL
+📊 Customer Segmentation Dashboard
 
-(Olist Brazilian E-commerce Dataset)
+(Using SQL + Streamlit | Olist Brazilian E-commerce Dataset)
 
 📌 Project Overview
 
-This project focuses on customer segmentation using SQL by analyzing customer purchase behavior. The goal is to group customers into meaningful segments based on how often they shop and how much they spend.
-The project is rule-based, simple, and designed mainly for learning, exams, and interview preparation.
+This project focuses on customer segmentation using SQL and visualizing the results through an interactive dashboard built with Python and Streamlit.
 
-🎯 Project Objective
+The segmentation is performed using rule-based logic on customer purchase behavior (frequency and spending), and the results are displayed in a dynamic dashboard for better understanding and decision-making.
 
-The main objectives of this project are:
-
-To understand customer behavior using transactional data
-
-To build a customer-level dataset (one row per real customer)
-
-To segment customers based on purchase frequency and spending
-
-To help businesses use their resources (ads, offers, retention) more effectively
-
+🎯 Project Objectives
+Analyze customer behavior using transactional data
+Build a customer-level dataset (one row per real customer)
+Segment customers based on purchase frequency and spending (AOV)
+Visualize insights using an interactive dashboard
+Help businesses optimize marketing and retention strategies
 🛠️ Tech Stack Used
-
 SQL (MySQL / SQLite)
-
-CSV Dataset (Olist Brazilian E-commerce)
-
-SQL concepts:
-
-Joins
-
-Aggregations
-
-Grouping
-
-CASE statements
-
+Python
+Streamlit (for dashboard)
+Pandas (for data handling)
+Dataset: Olist Brazilian E-commerce
 📂 Dataset Description
 
-The project uses the following tables from the dataset:
+The project uses the following datasets:
 
 Customers – customer identity information
-
 Orders – order activity and timestamps
+Payments – transaction/payment details
 
-Payments – payment amount details
-
-A key learning point was using customer_unique_id instead of customer_id to correctly identify real customers.
+🔑 Key Learning:
+Used customer_unique_id instead of customer_id to correctly identify real customers.
 
 🧠 Project Approach
-
-Imported CSV files into the SQL database
-
-Identified the correct customer identifier (customer_unique_id)
-
+🔹 Data Processing (SQL)
+Imported CSV data into database
+Performed joins across tables
 Calculated:
-
 Order frequency per customer
-
 Total spending per customer
+Created a customer-level table (customer_segment)
+Computed:
+Average Order Value (AOV)
+Customer segmentation using rule-based logic
+🔹 Data Visualization (Dashboard)
+Connected database to Python using MySQL connector
+Loaded data using Pandas
+Built interactive dashboard using Streamlit
+Displayed:
+Customer data table
+Customer segmentation graphs
+AOV analysis
+Key metrics (Total Customers, Avg AOV)
+Filtering options
+🧩 Customer Segments
 
-Created a customer-level dataset
+Customers are divided into four categories:
 
-Calculated dataset averages for frequency and spending
+Loyal Customers → High frequency & high spending
+High-Value At-Risk Customers → Low frequency & high spending
+Active Low-Value Customers → High frequency & low spending
+Casual / Low-Engagement Customers → Low frequency & low spending
+📊 Dashboard Features
+📌 Total Customers & Average AOV
+📊 Customer Type Distribution
+📊 AOV Analysis by Segment
+🔍 Filter customers by type
+📈 Interactive visualizations
+💡 Business Value
 
-Applied rule-based segmentation using average values
+This project helps businesses:
 
-🧩 Customer Segments Created
-
-Customers were divided into four segments:
-
-Loyal Customers
-High frequency & high spending
-
-High-Value At-Risk Customers
-Low frequency & high spending
-
-Active Low-Value Customers
-High frequency & low spending
-
-Casual / Low-Engagement Customers
-Low frequency & low spending
-
-📈 Business Value
-
-This segmentation helps a company:
-
-Identify its most valuable customers
-
-Detect customers who are at risk of leaving
-
-Allocate marketing resources efficiently
-
-Understand overall customer behavior patterns
-
+Identify high-value customers for retention
+Detect at-risk customers early
+Improve marketing strategies
+Allocate resources efficiently
+Understand overall customer behavior
 📚 Key Learnings
-
 Importance of correct customer identifiers
+Writing structured and efficient SQL queries
+Converting raw data into meaningful insights
+Integrating SQL with Python for real-world applications
+Building end-to-end data analysis + dashboard project
+⚙️ Setup & Execution
+1️⃣ Install Dependencies
+pip install streamlit pandas mysql-connector-python
+2️⃣ Setup Database
+Create database: segmentation
+Create table: customer_segment
+Insert processed segmentation data
+3️⃣ Configure Database Connection
 
-Handling real-world data inconsistencies
+Update in app.py:
 
-Writing clean and explainable SQL queries
-
-Translating raw data into business insights
-
-Building end-to-end SQL analysis projects
-
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YOUR_PASSWORD",
+    database="segmentation"
+)
+4️⃣ Run the Dashboard
+streamlit run app.py
 🚀 Future Scope
-
-Dynamic segmentation using time-based analysis
-
-Integration with dashboards (Power BI / Tableau)
-
-Applying machine learning for automated segmentation
-
+Add time-based dynamic segmentation
+Integrate with Power BI / Tableau
+Apply machine learning for predictive segmentation
+Deploy dashboard online
 ✅ Conclusion
 
-This project demonstrates how SQL alone can be used to build meaningful customer insights. It highlights strong fundamentals in data analysis, logical thinking, and business interpretation, making it suitable for academic evaluation and entry-level data roles.
+This project demonstrates a complete pipeline:
+
+SQL Data Processing → Customer Segmentation → Dashboard Visualization
+
+It highlights strong fundamentals in:
+
+Data analysis
+SQL
+Business understanding
+Dashboard development
+
+Making it suitable for academic evaluation, internships, and entry-level data roles.
+
+👨‍💻 Author
+
+Yugansh Sapra
+B.Tech CSE Student
