@@ -126,6 +126,7 @@ Open in browser:
 http://localhost:8501
 
 💡 **Business Insights**
+
 High-value customers contribute the most revenue.
 
 Medium-value customers have growth potential.
@@ -133,6 +134,7 @@ Medium-value customers have growth potential.
 Low-value customers need engagement strategies.
 
 📚 **Learning Outcomes**
+
 SQL joins and data processing.
 
 Customer segmentation techniques.
@@ -142,6 +144,7 @@ Data visualization using Streamlit.
 Converting raw data into business insights.
 
 **🚀 Future Improvements**
+
 Add churn prediction.
 
 Apply machine learning for segmentation.
