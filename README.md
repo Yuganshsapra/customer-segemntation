@@ -1,129 +1,150 @@
-📊 Customer Segmentation Dashboard
+# 📊 Customer Segmentation Dashboard  
+*(Using SQL + Streamlit | Olist E-commerce Dataset)*
 
-(Using SQL + Streamlit | Olist Brazilian E-commerce Dataset)
+---
 
-📌 Project Overview
+## 📌 Overview  
 
-This project focuses on customer segmentation using SQL and visualizing the results through an interactive dashboard built with Python and Streamlit.
+This project is a **Customer Segmentation Dashboard** built using SQL, Python, and Streamlit.  
+It analyzes customer purchase behavior and segments them based on **spending (AOV)** and **purchase frequency**.
 
-The segmentation is performed using rule-based logic on customer purchase behavior (frequency and spending), and the results are displayed in a dynamic dashboard for better understanding and decision-making.
+The goal is to transform raw data into **meaningful insights** that help businesses make better decisions.
 
-🎯 Project Objectives
-Analyze customer behavior using transactional data
-Build a customer-level dataset (one row per real customer)
-Segment customers based on purchase frequency and spending (AOV)
-Visualize insights using an interactive dashboard
-Help businesses optimize marketing and retention strategies
-🛠️ Tech Stack Used
-SQL (MySQL / SQLite)
-Python
-Streamlit (for dashboard)
-Pandas (for data handling)
-Dataset: Olist Brazilian E-commerce
-📂 Dataset Description
+---
 
-The project uses the following datasets:
+## 🎯 Objectives  
 
-Customers – customer identity information
-Orders – order activity and timestamps
-Payments – transaction/payment details
+- Analyze customer behavior using transactional data  
+- Build a customer-level dataset  
+- Segment customers into meaningful groups  
+- Visualize insights using an interactive dashboard  
 
-🔑 Key Learning:
-Used customer_unique_id instead of customer_id to correctly identify real customers.
+---
 
-🧠 Project Approach
-🔹 Data Processing (SQL)
-Imported CSV data into database
-Performed joins across tables
-Calculated:
-Order frequency per customer
-Total spending per customer
-Created a customer-level table (customer_segment)
-Computed:
-Average Order Value (AOV)
-Customer segmentation using rule-based logic
-🔹 Data Visualization (Dashboard)
-Connected database to Python using MySQL connector
-Loaded data using Pandas
-Built interactive dashboard using Streamlit
-Displayed:
-Customer data table
-Customer segmentation graphs
-AOV analysis
-Key metrics (Total Customers, Avg AOV)
-Filtering options
-🧩 Customer Segments
+## 🛠️ Tech Stack  
 
-Customers are divided into four categories:
+- SQL (MySQL)  
+- Python  
+- Streamlit  
+- Pandas  
 
-Loyal Customers → High frequency & high spending
-High-Value At-Risk Customers → Low frequency & high spending
-Active Low-Value Customers → High frequency & low spending
-Casual / Low-Engagement Customers → Low frequency & low spending
-📊 Dashboard Features
-📌 Total Customers & Average AOV
-📊 Customer Type Distribution
-📊 AOV Analysis by Segment
-🔍 Filter customers by type
-📈 Interactive visualizations
-💡 Business Value
+---
 
-This project helps businesses:
+## 📂 Project Structure  
 
-Identify high-value customers for retention
-Detect at-risk customers early
-Improve marketing strategies
-Allocate resources efficiently
-Understand overall customer behavior
-📚 Key Learnings
-Importance of correct customer identifiers
-Writing structured and efficient SQL queries
-Converting raw data into meaningful insights
-Integrating SQL with Python for real-world applications
-Building end-to-end data analysis + dashboard project
-⚙️ Setup & Execution
-1️⃣ Install Dependencies
-pip install streamlit pandas mysql-connector-python
-2️⃣ Setup Database
-Create database: segmentation
-Create table: customer_segment
-Insert processed segmentation data
-3️⃣ Configure Database Connection
 
-Update in app.py:
+customer-segmentation-dashboard/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── data/
+│ ├── olist_customers_dataset.csv
+│ ├── olist_orders_dataset.csv
+│
+├── sql/
+│ ├── table_creation.sql
+│ ├── customer_dataset.sql
+│ ├── aov_customer_type.sql
+│ ├── segmentation.sql
+│
+└── docs/
+└── project_flow.md
 
-conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="YOUR_PASSWORD",
-    database="segmentation"
-)
-4️⃣ Run the Dashboard
+
+---
+
+## 🔄 Project Workflow  
+
+Raw Data → SQL Processing → Customer Segmentation → Streamlit Dashboard → Insights  
+
+---
+
+## 📊 Features  
+
+- Customer segmentation (High / Medium / Low Value)  
+- AOV (Average Order Value) analysis  
+- Customer distribution graphs  
+- Interactive dashboard  
+- Filter customers by type  
+
+---
+
+## 📸 Dashboard Preview  
+
+
+<img width="984" height="762" alt="image" src="https://github.com/user-attachments/assets/c81ccbb2-4b14-4475-98a6-714d78cc8b41" />
+
+
+<img width="1051" height="789" alt="image" src="https://github.com/user-attachments/assets/0de23ea3-493d-4dd0-9b9e-3b08a5f4c140" />
+
+
+
+---
+
+## ⚙️ How to Run This Project  
+
+Follow these steps to run the project on your system:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/customer-segmentation-dashboard.git
+   cd customer-segmentation-dashboard
+
+Install required libraries:
+
+pip install -r requirements.txt
+Setup MySQL database:
+Make sure MySQL is installed and running
+
+Create database:
+
+CREATE DATABASE segmentation;
+
+Create table:
+
+CREATE TABLE customer_segment (
+    customer_id INT,
+    total_payment FLOAT,
+    total_orders INT,
+    AOV FLOAT,
+    customer_type VARCHAR(50)
+);
+Insert data manually or use SQL files from sql/ folder
+Configure database connection:
+Open app.py
+
+Replace:
+
+password="YOUR_PASSWORD"
+
+with your MySQL password
+
+Run the Streamlit app:
+
 streamlit run app.py
-🚀 Future Scope
-Add time-based dynamic segmentation
-Integrate with Power BI / Tableau
-Apply machine learning for predictive segmentation
+Open in browser:
+http://localhost:8501
+
+📌 Notes
+Ensure MySQL server is running
+Table name should be customer_segment
+Check column names if facing errors
+
+💡 Business Insights
+High-value customers contribute most revenue
+Medium-value customers have growth potential
+Low-value customers need engagement strategies
+
+📚 Learning Outcomes
+SQL data processing and joins
+Customer segmentation logic
+Data visualization using Streamlit
+Converting raw data into business insights
+
+🚀 Future Improvements
+Add churn prediction
+Use machine learning for segmentation
 Deploy dashboard online
-✅ Conclusion
-
-This project demonstrates a complete pipeline:
-
-SQL Data Processing → Customer Segmentation → Dashboard Visualization
-
-It highlights strong fundamentals in:
-
-Data analysis
-SQL
-Business understanding
-Dashboard development
-
-Making it suitable for academic evaluation, internships, and entry-level data roles.
-
-## 📸 Dashboard Preview
-
-<img width="984" height="762" alt="image" src="https://github.com/user-attachments/assets/2ed53012-d769-46c0-8bfc-991ac248f3ef" />
-
-<img width="1344" height="814" alt="image" src="https://github.com/user-attachments/assets/ce99b33e-a2c9-432d-8189-872f59da836f" />
-
-
