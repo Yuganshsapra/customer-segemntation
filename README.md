@@ -30,35 +30,42 @@ The goal is to transform raw data into **meaningful insights** that help busines
 
 ---
 
-## 📂 Project Structure  
+## 📂 Dataset  
 
+This project uses the **Olist Brazilian E-commerce Dataset**.
 
-customer-segmentation-dashboard/
-│
-├── app.py
-├── README.md
-├── requirements.txt
-├── .gitignore
-│
-├── data/
-│ ├── olist_customers_dataset.csv
-│ ├── olist_orders_dataset.csv
-│
-├── sql/
-│ ├── table_creation.sql
-│ ├── customer_dataset.sql
-│ ├── aov_customer_type.sql
-│ ├── segmentation.sql
-│
-└── docs/
-└── project_flow.md
+🔗 Dataset Link:https://www.kaggle.com/code/yacinerouizi/e-commerce-customer-segmentation/input?select=olist_geolocation_dataset.csv
 
+Dataset includes:
+- Customers  
+- Orders  
+- Payments  
 
 ---
 
-## 🔄 Project Workflow  
+## 🧠 Project Approach  
 
-Raw Data → SQL Processing → Customer Segmentation → Streamlit Dashboard → Insights  
+### 🔹 Data Processing (SQL)
+- Imported dataset into MySQL  
+- Performed joins across customers, orders, and payments  
+- Used `customer_unique_id` for accurate customer identification  
+
+### 🔹 Feature Engineering
+- Calculated:
+  - Total spending per customer  
+  - Order frequency  
+  - Average Order Value (AOV)  
+
+### 🔹 Customer Segmentation
+Customers are divided into:
+- High Value → High spending  
+- Medium Value → Moderate spending  
+- Low Value → Low spending  
+
+### 🔹 Dashboard Development
+- Connected MySQL with Python  
+- Used Pandas for data handling  
+- Built interactive dashboard using Streamlit  
 
 ---
 
@@ -74,37 +81,28 @@ Raw Data → SQL Processing → Customer Segmentation → Streamlit Dashboard �
 
 ## 📸 Dashboard Preview  
 
-
-<img width="984" height="762" alt="image" src="https://github.com/user-attachments/assets/c81ccbb2-4b14-4475-98a6-714d78cc8b41" />
-
-
-<img width="1051" height="789" alt="image" src="https://github.com/user-attachments/assets/0de23ea3-493d-4dd0-9b9e-3b08a5f4c140" />
-
+<img width="984" height="762" alt="image" src="https://github.com/user-attachments/assets/be1f0918-ae74-4edf-b3f3-f8f7029e7921" />
+<img width="1344" height="814" alt="image" src="https://github.com/user-attachments/assets/696dafb1-d2df-41ca-a83b-684be97fd865" />
 
 
 ---
 
 ## ⚙️ How to Run This Project  
 
-Follow these steps to run the project on your system:
+Follow these steps:
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/customer-segmentation-dashboard.git
    cd customer-segmentation-dashboard
 
-Install required libraries:
+Install dependencies:
 
 pip install -r requirements.txt
-Setup MySQL database:
-Make sure MySQL is installed and running
 
-Create database:
+Setup MySQL database:
 
 CREATE DATABASE segmentation;
-
-Create table:
-
 CREATE TABLE customer_segment (
     customer_id INT,
     total_payment FLOAT,
@@ -112,39 +110,30 @@ CREATE TABLE customer_segment (
     AOV FLOAT,
     customer_type VARCHAR(50)
 );
-Insert data manually or use SQL files from sql/ folder
-Configure database connection:
-Open app.py
+Insert data:
+Use dataset and SQL queries from the project
 
-Replace:
+Configure database connection in app.py:
 
 password="YOUR_PASSWORD"
 
-with your MySQL password
-
-Run the Streamlit app:
+Run the application:
 
 streamlit run app.py
+
 Open in browser:
+
 http://localhost:8501
-
-📌 Notes
-Ensure MySQL server is running
-Table name should be customer_segment
-Check column names if facing errors
-
 💡 Business Insights
-High-value customers contribute most revenue
+High-value customers contribute the most revenue
 Medium-value customers have growth potential
 Low-value customers need engagement strategies
-
 📚 Learning Outcomes
-SQL data processing and joins
-Customer segmentation logic
+SQL joins and data processing
+Customer segmentation techniques
 Data visualization using Streamlit
 Converting raw data into business insights
-
 🚀 Future Improvements
 Add churn prediction
-Use machine learning for segmentation
+Apply machine learning for segmentation
 Deploy dashboard online
