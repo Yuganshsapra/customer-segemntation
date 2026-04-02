@@ -120,7 +120,10 @@ Dashboard development
 
 Making it suitable for academic evaluation, internships, and entry-level data roles.
 
-👨‍💻 Author
+## 📸 Dashboard Preview
 
-Yugansh Sapra
-B.Tech CSE Student
+<img width="984" height="762" alt="image" src="https://github.com/user-attachments/assets/2ed53012-d769-46c0-8bfc-991ac248f3ef" />
+
+<img width="1344" height="814" alt="image" src="https://github.com/user-attachments/assets/ce99b33e-a2c9-432d-8189-872f59da836f" />
+
+
